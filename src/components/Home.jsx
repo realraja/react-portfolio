@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import {animate, motion} from 'framer-motion'
 import Typewriter from 'typewriter-effect'
 import {BsArrowUpRight , BsChevronDown} from 'react-icons/bs'
-import me from '../assets/logo.png'
 
 const Home = ({ratio}) => {
 
@@ -107,7 +106,7 @@ const Home = ({ratio}) => {
 
 
       <section>
-        <img src={me} alt="Rajesh" />
+        <img src={'https://firebasestorage.googleapis.com/v0/b/ecommerce-raja.appspot.com/o/ecommerce%2F1719826369710-8ngr6cf3z9-141056953_3624618620919255_2018376255090419524_n.jpg?alt=media&token=f885ce4a-8dd9-4e0e-81e5-a4ec32b0d9ac'} alt="Rajesh" />
       </section>
 
       <a href="#footer" ><BsChevronDown id='downicon' /></a>
