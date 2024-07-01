@@ -118,12 +118,12 @@
         
     }
 
-    >svg{
+    >a>svg{
         position: absolute;
         font-size: 4rem;
         color: $color5;
         left: 50%;
-        bottom: 5%;
+        bottom: 0%;
         transform: translateX(-50%);
         animation: animateSvg 0.4s infinite linear alternate;
     }

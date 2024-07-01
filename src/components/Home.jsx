@@ -1,10 +1,22 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import {animate, motion} from 'framer-motion'
 import Typewriter from 'typewriter-effect'
 import {BsArrowUpRight , BsChevronDown} from 'react-icons/bs'
 import me from '../assets/logo.png'
 
-const Home = () => {
+const Home = ({ratio}) => {
+
+  useEffect(()=>{
+    let downicon = document.getElementById('downicon');
+  window.addEventListener('scroll', function(){
+    if(window.pageYOffset >= 50){
+      downicon.style.display = 'none';
+    }else{
+      downicon.style.display = 'unset';
+    }
+}) 
+  })
+  
 
   const clintCount = useRef(null);
   const projectCount = useRef(null);
@@ -48,14 +60,14 @@ const Home = () => {
     <div id='home'>
       <section><div>
           <motion.h1 {...animations.h1}>
-            Hi, I Am <br /> Rajesh Kumar
+            Namastee, I Am <br /> Rajesh Kumar
           </motion.h1>
 
-          <Typewriter options={{
+          <Typewriter className='typewriterpara' options={{
             strings:['A Developer', 'A Coder', 'A Programmer', 'A Creator'],
             autoStart:true,
             loop:true,
-            wrapperClassName: 'typewriterpara'
+            wrapperClassName: 'typewriterpara',
           }} />
 
           <div>
@@ -65,7 +77,9 @@ const Home = () => {
 
           <article>
             <p>
-            +<motion.span whileInView={animationClintsCount} ref={clintCount}></motion.span>
+            +{
+              ratio < 2 && (<motion.span whileInView={animationClintsCount} ref={clintCount}></motion.span>)
+            }
             </p>
                 
             <span>Clients Worldwide</span>
@@ -74,7 +88,9 @@ const Home = () => {
           <aside>
           <article>
             <p>
-            +<motion.span whileInView={animationProjectsCount}  ref={projectCount}>200</motion.span>
+            +{
+              ratio < 2 && (<motion.span whileInView={animationProjectsCount}  ref={projectCount}>200</motion.span>)
+            }
             </p>
                 
             <span>Projects Done</span>
@@ -93,7 +109,9 @@ const Home = () => {
       <section>
         <img src={me} alt="Rajesh" />
       </section>
-      <BsChevronDown />
+
+      <a href="#footer" ><BsChevronDown id='downicon' /></a>
+      
     </div>
   )
 }
